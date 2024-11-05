@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 <?php 
-
 include '../function.php';
 
 $id = isset($_POST['id']) ? strip_tags($_POST['id']) : '';

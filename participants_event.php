@@ -11,25 +11,25 @@
     <link rel="stylesheet" href="../../../css/responsive.dataTables.min.css">
 </head>
 <?php
-    include 'function.php';
+include 'function.php';
 
-    $user_session = session_profile_user();
-    $role_session = session_role();
-    $seminar_id = isset($_GET['id']) ? $_GET['id'] : '';
-    $participants = show_participants_event($seminar_id);
-    
-    if (auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '')) {
-        header('location: ../../../login');
-        exit;
-    }
+$user_session = session_profile_user();
+$role_session = session_role();
+$seminar_id = isset($_GET['id']) ? $_GET['id'] : '';
+$participants = show_participants_event($seminar_id);
 
-    if(authorization('create event' )){
-        header('location: ../../home');
-    }
+if (auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '')) {
+    header('location: ../../../login');
+    exit;
+}
 
-    if(validation_contributor($seminar_id)){
-        header('location: ../../create_events');
-    }
+if (authorization('create event')) {
+    header('location: ../../home');
+}
+
+if (validation_contributor($seminar_id)) {
+    header('location: ../../create_events');
+}
 ?>
 
 <body>
@@ -50,14 +50,35 @@
             </div>
         </div>
     </div>
-    
+    <div class="dialog_background">
+        <div class="wrap_dialog">
+            <div class="dialog_confirm">
+                <form action="../../../action/action_set_status.php" id="ajax-status">
+                    <div class="dialog_header">
+                        <h3>Set Status</h3>
+                        <button type="button" class="btn_close_dialog">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                    </div>
+                    <div class="dialog_body">
+                        Apakah anda yakin ingin set status?
+                    </div>
+                    <div class="dialog_footer">
+                        <button type="button" class="btn_close_dialog">Tutup</button>
+                        <button type="submit">Ya</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container_page">
-        <?php 
-            include 'component/navbar.php';
+        <?php
+        include 'component/navbar.php';
         ?>
         <div class="main">
-            <?php 
-                include 'component/sidebar.php';
+            <?php
+            include 'component/sidebar.php';
             ?>
             <div class="content">
                 <div class="container_content">
@@ -76,9 +97,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                    foreach($participants as $row) { 
-                                        $date = isset($row['waktu_reg']) ? date_create($row['waktu_reg']) : '';
+                                <?php
+                                foreach ($participants as $row) {
+                                    $date = isset($row['waktu_reg']) ? date_create($row['waktu_reg']) : '';
                                     ?>
                                     <tr>
                                         <td><?= $row['no_reg']; ?></td>
@@ -87,13 +108,16 @@
                                             <?= date_format($date, 'd F Y, H:i') ?>
                                         </td>
                                         <td>
-                                            <?php if($row['status'] == 'tertunda'){ ?>
+                                            <?php if ($row['status'] == 'tertunda') { ?>
                                                 <div class="btn_status">
-                                                    <button class="btn_set_status btn_td btn_green" data-reg="<?= $row['no_reg'] ?>" data-status="diterima">Terima</button>
-                                                    <button class="btn_set_status btn_td btn_red" data-reg="<?= $row['no_reg'] ?>" data-status="ditolak">Tolak</button>
+                                                    <button class="btn_set_status btn_td btn_green"
+                                                        data-reg="<?= $row['no_reg'] ?>" data-status="diterima">Terima</button>
+                                                    <button class="btn_set_status btn_td btn_red"
+                                                        data-reg="<?= $row['no_reg'] ?>" data-status="ditolak">Tolak</button>
                                                 </div>
-                                            <?php }else{ ?>
-                                                <span class="tag tag_status <?= $row['status'] == 'diterima' ? 'tag_green' : 'tag_red' ?>"><?= $row['status'] ?></span>
+                                            <?php } else { ?>
+                                                <span
+                                                    class="tag tag_status <?= $row['status'] == 'diterima' ? 'tag_green' : 'tag_red' ?>"><?= $row['status'] ?></span>
                                             <?php } ?>
                                         </td>
                                     </tr>
@@ -127,16 +151,16 @@
                 order: []
             });
 
-            $('.button_dropdown').click(function(){
+            $('.button_dropdown').click(function () {
                 let display = $('.dropdown_profile').css('display');
-                if(display == 'none'){
+                if (display == 'none') {
                     $('.dropdown_profile').fadeIn(200);
-                }else{
+                } else {
                     $('.dropdown_profile').fadeOut(0);
                 }
             });
-            
-            $('.btn_hamburger').click(function() {
+
+            $('.btn_hamburger').click(function () {
                 let sidebar = $('.sidebar').css('margin-left');
                 console.log(sidebar);
                 if (sidebar == '0px') {
@@ -150,87 +174,66 @@
                 }
             });
 
-            $('#table').on('click', '.btn_set_status', function(e){
-                e.preventDefault();
-                let url = $(this).attr('href');
+            $('#table').on('click', '.btn_set_status', function (e) {
+                let confirm = $('.dialog_background');
                 let reg = $(this).data('reg');
                 let status = $(this).data('status');
                 let btn_set = $(this).parent();
                 let row = $(this).closest('td');
-                
-                if(confirm('Set status menjadi '+status+' ?')){
-                    $.ajax({
-                        url: '../../../action/action_set_status.php',
-                        method: 'POST',
-                        data: { no_reg: reg, status: status },
-                        dataType: 'json',
-                        success: function (response) {
-                            if (response.status == 'success') {
-                                btn_set.remove();
-                                row.append(response.span_status);
-                                $('.icon_notif').empty().append(response.icon);
-                                $('#title_notif').text('Success !');
-                                $('#message_notif').text(response.message);
-                                $('.notif').css({ 'background-color': '#74b574e2' }).fadeIn(300);
-                                setTimeout(function () {
-                                    $('.notif').fadeOut(800);
-                                }, 1500);
-                            } else {
-                                $('.icon_notif').empty().append(response.icon);
-                                $('#title_notif').text('Failed !');
-                                $('#message_notif').text(response.message);
-                                $('.notif').css({ 'background-color': '#c85c57' }).fadeIn(300);
-                                setTimeout(function () {
-                                    $('.notif').fadeOut(800);
-                                }, 2000);
-                            }
-                        }
-                    });
-                }
+                let form = $('#ajax-status');
+
+                form.data('reg',reg);
+                form.data('status',status);
+                form.data('row',row);
+                form.data('btn_set',btn_set);
+                confirm.fadeIn(300);
             });
 
-            $('#table').on('click', '.btn_delete', function (e) {
+            $('.btn_close_dialog').click(function () {
+                let confirm = $('.dialog_background');
+                confirm.fadeOut(300);
+            });
+
+            $('#ajax-status').submit(function(e){
                 e.preventDefault();
-                let deleteId = $(this).data('id');
-                let url = $(this).attr('href');
-                let row = $(this).closest('tr');
-                console.log(deleteId);
-                if (confirm('Apakah Anda Yakin Ingin Menghapus?')) {
-                    $.ajax({
-                        url: url,
-                        method: 'POST',
-                        data: { id: deleteId },
-                        success: function (response) {
-                            if (response.status == 'success') {
-                                row.remove();
-                                $('.icon_notif').empty().append(response.icon);
-                                $('#title_notif').text('Success !');
-                                $('#message_notif').text(response.message);
-                                $('.notif').css({ 'background-color': '#74b574e2' }).fadeIn(300);
-                                setTimeout(function () {
-                                    $('.notif').fadeOut(1000);
-                                }, 3000);
-                            } else {
-                                $('.icon_notif').empty().append(response.icon);
-                                $('#title_notif').text('Failed !');
-                                $('#message_notif').text(response.message);
-                                $('.notif').css({ 'background-color': '#c85c57' }).fadeIn(300);
-                                setTimeout(function () {
-                                    $('.notif').fadeOut(1000);
-                                }, 3000);
-                            }
-                        },  
-                        error: function (response) {
-                            $('.icon_notif').empty().append(response.responseJSON.icon);
+                let url = $(this).attr('action');
+                let reg = $(this).data('reg');
+                let status = $(this).data('status');
+                
+                let row = $(this).data('row');
+                let btn_set = $(this).data('btn_set');
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {no_reg: reg, status: status},
+                    dataType: 'JSON',
+                    beforeSend: function () {
+                        $('.dialog_background').fadeOut(300);
+                    },
+                    success: function (response) {
+                        if (response.status == 'success') {
+                            btn_set.remove();
+                            row.append(response.span_status);
+                            $('.icon_notif').empty().append(response.icon);
+                            $('#title_notif').text('Success !');
+                            $('#message_notif').text(response.message);
+                            $('.notif').css({ 'background-color': '#74b574e2' }).fadeIn(300);
+                            setTimeout(function () {
+                                $('.notif').fadeOut(800);
+                            }, 1500);
+                        } else {
+                            $('.icon_notif').empty().append(response.icon);
                             $('#title_notif').text('Failed !');
-                            $('#message_notif').text(response.responseJSON.message);
+                            $('#message_notif').text(response.message);
                             $('.notif').css({ 'background-color': '#c85c57' }).fadeIn(300);
                             setTimeout(function () {
-                                $('.notif').fadeOut(1000);
-                            }, 3000);
+                                $('.notif').fadeOut(800);
+                            }, 2000);
                         }
-                    });
-                }
+                    }
+                });
+
             });
         });
     </script>
