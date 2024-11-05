@@ -376,7 +376,7 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_se
 
 @media (max-width: 1199.98px){
     section.content .registrasi_seminar .wrap_box_seminar{
-        grid-template-columns: repeat(auto-fill, minmax(calc(33.3% - 20px), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(calc(33.33333333% - 20px), 1fr));
     }
 }
 

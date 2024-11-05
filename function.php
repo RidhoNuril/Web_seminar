@@ -50,7 +50,7 @@ function session_profile_user()
 {
     include 'conn.php';
 
-    $stmt = $conn->prepare("SELECT user_id,nama,kelas,email FROM user WHERE user_id=?");
+    $stmt = $conn->prepare("SELECT user_id,nama,kelas,asal_sekolah,email,no_telp,provinsi,kabupaten,kecamatan,kelurahan FROM user WHERE user_id=?");
     $stmt->bind_param("i", $_SESSION['user']);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();

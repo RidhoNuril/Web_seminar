@@ -317,12 +317,18 @@ form .btn_update{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+
+#profile tr td{
+    padding: 8px;
+    border-bottom: 1px solid #dddddd87 ;
+}
+
 #table_wrapper{
     overflow: auto;
 }
 
 .dataTable th{
-    border-top: 1px solid #dddddd87;
+    border-top: 1px solid #ddddddd3;
     color: #484e56;
     text-align: left !important;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Seminar - Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dataTables.min.css">
     <link rel="stylesheet" href="../font/fontawesome/css/all.min.css">
 </head>
 <?php
@@ -53,12 +54,49 @@
                     <div class="title_content">
                         <span>Profile</span>
                     </div>
+                    <div class="wrap_table">
+                        <table id="profile" width="60%">
+                            <tbody>
+                                <tr>
+                                    <td>Nama Lengkap</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['nama']) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Kelas</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['kelas']) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Asal sekolah</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['asal_sekolah']) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['email']) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Telepon</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['no_telp']) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat</td>
+                                    <td>:</td>
+                                    <td><?php print_r($user_session['provinsi']) ?>, <?php print_r($user_session['kabupaten']) ?>, <?php print_r($user_session['kecamatan']) ?>, <?php print_r($user_session['kelurahan']) ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {
