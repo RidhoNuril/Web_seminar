@@ -113,6 +113,10 @@ a{
     border-radius: 4px;
 }
 
+.form_dashboard{
+    width: 100% !important;
+}
+
 .form .form_head{
     padding: 0px 15px 20px 15px;
 }
@@ -136,10 +140,18 @@ a{
     padding: 0px 15px;
 }
 
+.form_left_65{
+    width: 65% !important;
+}
+
 .form .form_right{
     width: 50%;
     padding: 0px 15px;
 
+}
+
+.form_right_35{
+    width: 35% !important;
 }
 
 .form_group{
@@ -855,14 +867,8 @@ td span.link a i{
 .container_form{
     width: 100%;
     min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.form_role{
-    align-items: start;
-}
 
 
 @media (max-width: 900px){
@@ -900,8 +906,10 @@ td span.link a i{
 
     .form .form_right,
     .form .form_left,
+    .form_left_65,
+    .form_right_35,
     .wrap_table{
-        width: 100%;
+        width: 100% !important;
     }
 
     .container_page .main .content{

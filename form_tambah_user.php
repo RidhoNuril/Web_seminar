@@ -54,7 +54,7 @@
             <div class="content">
                 <div class="container_content">
                     <div class="container_form">
-                        <div class="form">
+                        <div class="form form_dashboard">
                             <div class="form_head">
                                 <div class="d-flex">
                                     <h1>Add</h1>
