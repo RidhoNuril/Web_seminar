@@ -63,8 +63,8 @@
         ?>
 
         <div class="container_index">
-            <div class="container_index_pd">
-                <section class="content">
+            <section class="content">
+                <div class="container_index_pd">
                     <div class="box_banner">
                         <div class="banner_overflow">
                             <img src="img/Dark Teal Geometric Technology LinkedIn Banner.png" alt="">
@@ -115,7 +115,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container_index_pd">
                     <div class="registrasi_seminar">
                         <div class="title_registrasi">
                             <h1>Events Mendatang</h1>
@@ -145,9 +147,9 @@
                             <?php } ?>
                         </div>
                     </div>
+                </div>
 
-                </section>
-            </div>
+            </section>
         </div>
     </div>
 
@@ -276,4 +278,5 @@
         });
     </script>
 </body>
+
 </html>
