@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    scrollbar-width: thin;
+    font-weight: 600;
+    scrollbar-color: #888 #fff;
+    color: #484e56;
+}
+
+:root{
+    --primary-color: #53a8b6;
+}
+
+a{
+    text-decoration: none;
+}
+
+.beranda{
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.beranda .navbar_index{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 997;
+    width: 100%;
+    background-color: #ffffff;
+    transition: .3s ease all;
+}
+
+.beranda .navbar_shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: .3s ease all;
+}
+
+.beranda .center_navbar{
+    padding: 1.2rem 5rem;
+    transition: .3s ease all;
+}
+
+.beranda .wrap_navbar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.beranda .navbar_left,.navbar_mid{
+    height: 100%;
+}
+
+.beranda .sidebar_index{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 76px;
+    right: -100%;
+    background-color: #fff;
+    z-index: 996;
+    transition: .5s ease all;
+}
+
+.beranda .sidebar_index_show{
+    right: 0;
+    transition: .5s ease all;
+}
+
+.beranda .sidebar_index .wrap_sidebar{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    list-style-type: none;
+}
+
+.beranda .sidebar_index .wrap_sidebar li .sidebar_link{
+    padding: 15px 16px;
+    display: block;
+    color: var(--primary-color);
+}
+.beranda .sidebar_index .wrap_sidebar li.profile_list{
+    padding: 12px 16px;
+}
+
+.beranda .container_index{
+    padding: 0rem 5rem;
+    transition: .3s ease all;
+}
+
+.container_index_pd{
+    padding: 0rem 1rem;  
+}
+
+section.content .box_banner{
+    height: max-content;
+    max-height: 390px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+section.content .box_banner .banner_overflow{
+    border-radius: 5px;
+    height: auto;
+}
+
+section.content .box_banner .banner_overflow img{
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+section.content .row_divisi{
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    margin-bottom: 2rem;
+}
+
+section.content .row_divisi .row{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 17px;
+}
+
+section.content .row_divisi .box_divisi{
+    width: 270px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+section.content .row_divisi .box_divisi .divisi{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: .4s ease all;
+}
+
+section.content .row_divisi .box_divisi .text_divisi{
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    top: 55%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%);
+    text-align: center;
+    white-space: nowrap;
+    cursor: default;
+}
+
+section.content .row_divisi .box_divisi .divisi::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(83,168,182,0.9024859943977591) 20%, rgba(83,168,182,0.5999649859943977) 45%, rgba(83,168,182,0) 70%);
+}
+
+section.content .row_divisi .box_divisi .divisi::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 3;
+    background-color: #ffffff52;
+    transition: .4s ease all;
+}
+
+section.content .row_divisi .box_divisi:hover .divisi,
+section.content .row_divisi .box_divisi:hover .divisi::after{
+    transform: scale(1.1);
+    background-color: transparent;
+    transition: .4s ease all;
+}
+
+section.content .registrasi_seminar{
+    margin-bottom: 2rem;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(25% - 20px), 1fr));
+    column-gap: 20px;
+    row-gap: 25px;
+}
+
+section.content .registrasi_seminar .title_registrasi{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+section.content .registrasi_seminar .title_registrasi h1{
+    font-size: 24px;
+}
+
+section.content .registrasi_seminar .title_registrasi a{
+    color: #318a97;
+    white-space: nowrap;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_thumbnail{
+    width: 100%;
+    height: max-content;
+    background-color: #e9eef1;
+}
+
+.img_thumbnail{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .title_seminar,
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .waktu_seminar{
+    margin-bottom: 8px;
+    max-height: 50px;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .title_seminar h1{
+    font-size: 18px;
+    line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .waktu_seminar span{
+    font-size: 14px;
+    line-height: 25px;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_seminar{
+    padding: 12px 16px;
+    box-sizing: border-box;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: .3s ease all;
+    cursor: pointer;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_seminar:hover{
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    transition: .3s ease all;
+}
+
+
+.btn{
+    padding: 10px 24px !important;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.nav_items{
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+}
+
+.btn_hamburger{
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav_item{
+    display: flex;
+    align-items: center;
+}
+
+.nav_link{
+    padding: 12px 16px;
+    box-sizing: border-box;
+}
+
+.btn_masuk{
+    border: 1px solid var(--primary-color);
+    background-color: #fff;
+    margin-right: 5px;
+    transition: .3s ease all;
+}
+
+.btn_daftar{
+    background-color: var(--primary-color);
+    margin: 0px 5px;
+    color: #fff !important;
+    transition: .3s ease all;
+}
+
+.item_mid{
+    transition: .2s ease all;
+}
+
+.item_mid:hover{
+    background-color: #f2f2f2;
+    border-radius: 3px;
+    transition: .2s ease all;
+}
+
+.btn_masuk:hover{
+    background-color: #318a97;
+    color: #fff;
+    transition: .3s ease all;
+}
+
+.btn_daftar:hover{
+    background-color: #318a97;
+    transition: .3s ease all;
+}
+
+.btn_scroll_top{
+    position: fixed;
+    bottom: 3%;
+    right: -50px;
+    transition: .5s ease all;
+    z-index: 995;
+}
+
+.btn_scroll_top:hover{
+    cursor: pointer;
+}
+
+.btn_scroll_top .wrap_btn_scroll{
+    padding: 10px 15px;
+    border-radius: 3px;
+    background-color: #484e56;
+}
+
+.btn_scroll_top .wrap_btn_scroll i{
+    color: #fff;
+}
+
+@media (max-width: 1199.98px){
+    section.content .registrasi_seminar .wrap_box_seminar{
+        grid-template-columns: repeat(auto-fill, minmax(calc(33.3% - 20px), 1fr));
+    }
+}
+
+@media (max-width: 991.98px) {
+    section.content .registrasi_seminar .wrap_box_seminar{
+        grid-template-columns: repeat(auto-fill, minmax(calc(50% - 20px), 1fr));
+    }
+ }
+
+@media (max-width: 767.98px) {
+
+    .beranda .center_navbar{
+        padding: 1rem !important;
+    }
+
+    .beranda .navbar_right .nav_right_dekstop{
+        display: none;
+    }
+
+    .beranda .navbar_mid{
+        display: none;
+    }
+    
+    .btn_hamburger, .beranda .sidebar_index{
+        display: block;
+    }
+
+    .beranda .container_index{
+        padding: 0rem;
+        transition: .3s ease all;
+    }
+
+    section.content .box_banner{
+        height: max-content;
+        margin-bottom: 1.5rem;
+    }
+
+    section.content .row_divisi .box_divisi{
+        width: 200px;
+        height: 145px;
+    }
+
+    section.content .row_divisi .box_divisi .text_divisi{
+        font-size: 18px;
+    }
+    section.content .row_divisi{
+        margin-bottom: 1.5rem;
+    }
+
+    .profile_user{
+        display: none !important;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+    section.content .registrasi_seminar .wrap_box_seminar{
+        grid-template-columns: repeat(auto-fill, minmax(calc(100% - 20px), 1fr));
+    }
+    
+ }
