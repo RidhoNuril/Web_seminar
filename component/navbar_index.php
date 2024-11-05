@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="navbar_list">
                                         <li><a href="dashboard/home"><i class="fa-solid fa-house"></i> My Dashboard</a></li>
-                                        <li><a href=""><i class="fa-solid fa-user"></i> My Profile</a></li>
+                                        <li><a href="dashboard/profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
                                     </div>
                                     <div class="navbar_logout">
                                         <li>

@@ -5,12 +5,15 @@
 
         if($directory == 'dashboard'){
             $web_seminar = '../../web_seminar';
+            $profile = 'profile';
             $logout = '../action/action_logout.php';
         }elseif($url_file == 'participants'){
             $web_seminar = '../../../../web_seminar';
+            $profile = '../../profile';
             $logout = '../../../action/action_logout.php';
         }else{
             $web_seminar = '../../../web_seminar';
+            $profile = '../profile';
             $logout = '../../action/action_logout.php';
         }
     ?>
@@ -41,7 +44,7 @@
                                 <li><span><?php print_r($user_session['nama']); ?></span></li>
                             </div>
                             <div class="navbar_list">
-                                <li><a href=""><i class="fa-solid fa-user"></i> My Profile</a></li>
+                                <li><a href="<?= $profile ?>"><i class="fa-solid fa-user"></i> My Profile</a></li>
                             </div>
                             <div class="navbar_logout">
                                 <li>

@@ -29,8 +29,8 @@
         </div>
         <li>
             <a href="<?= $dashboard ?>"
-                class="nav_link <?= $url_file == 'home' ? 'active' : '' ?>">
-                <i class="fa-solid fa-house <?= $url_file == 'home' ? 'active' : '' ?>"></i> Dashboard
+                class="nav_link <?= $url_file == 'home' || $url_file == 'profile' ? 'active' : '' ?>">
+                <i class="fa-solid fa-house <?= $url_file == 'home' || $url_file == 'profile' ? 'active' : '' ?>"></i> Dashboard
             </a>
         </li>
         <li>
