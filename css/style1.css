@@ -23,7 +23,7 @@ main{
     background-color: #ffffff;
 }
 
-.navbar_index{
+header.navbar_index{
     position: sticky;
     top: 0;
     left: 0;
@@ -283,6 +283,64 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_se
     transition: .3s ease all;
 }
 
+footer{
+    background-color: var(--primary-color);
+}
+
+.footer_top{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0px 45px;
+    border-bottom: 1px solid #fff;
+}
+
+.footer_top .footer_box{
+    padding: 0px 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.footer_box h1.title{
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer_box h1.title_2{
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer_box ul li{
+    list-style-type: none;
+}
+
+.footer_box ul li a{
+    padding: 3px 0px;
+    display: block;
+    color: #fff;
+}
+
+.footer_box ul li a i{
+    margin-right: 10px;
+    color: #fff;
+}
+
+.footer_box p.description_footer{
+    line-height: 25px;
+    color: #fff;
+}
+
+.footer_bottom p.copyright{
+    font-size: 14px;
+    color: #fff;
+    padding: 16px 0px;
+    text-align: center;
+}
+
 
 .btn{
     padding: 10px 24px !important;
@@ -381,6 +439,20 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_se
     }
  }
 
+ @media (min-width: 768px) {
+
+    .col-lg-6{
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .col-lg-3{
+        flex: 0 0 auto;
+        width: 25%;
+    }
+
+ }
+
 @media (max-width: 767.98px) {
 
     .center_navbar{
@@ -399,7 +471,7 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_se
         display: block;
     }
 
-    main .container_index{
+    .container_index{
         padding: 30px 0rem 0rem;
         transition: .3s ease all;
     }

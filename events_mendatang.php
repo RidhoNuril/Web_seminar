@@ -97,6 +97,9 @@
             </div>
         </section>
     </main>
+    <?php
+        include 'component/footer_index.php';
+    ?>
 
     <div class="btn_scroll_top">
         <div class="wrap_btn_scroll">

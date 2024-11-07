@@ -55,13 +55,13 @@
             </div>
         </div>
     </div>
-    
-    <?php 
-        include 'component/navbar_index.php';
+
+    <?php
+    include 'component/navbar_index.php';
     ?>
     <main>
         <?php
-            include 'component/sidebar_index.php';
+        include 'component/sidebar_index.php';
         ?>
         <section class="content">
             <div class="container_index">
@@ -126,7 +126,6 @@
                         </div>
                         <div class="wrap_box_seminar">
                             <?php foreach ($event_up as $event) { ?>
-
                                 <div class="box_seminar">
                                     <div class="wrap_thumbnail">
                                         <img src="thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
@@ -141,17 +140,20 @@
                                                 <span><?= $event['waktu_seminar'] ?> WIB</span>
                                             </div>
                                         </div>
-                                        <button class="btn_regis_seminar" data-id="<?= $event['seminar_id'] ?>">Daftar</button>
+                                        <button class="btn_regis_seminar"
+                                            data-id="<?= $event['seminar_id'] ?>">Daftar</button>
                                     </div>
                                 </div>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
+    <?php
+        include 'component/footer_index.php';
+    ?>
 
     <div class="btn_scroll_top">
         <div class="wrap_btn_scroll">
@@ -262,7 +264,7 @@
             });
 
             $('.btn_scroll_top').click(function () {
-                $('html').animate({ scrollTop: '-=50' }, 'slow').animate({ scrollTop: 0 }, 300);
+                $('html').animate({ scrollTop: '-=50' }, 500).animate({ scrollTop: 0 }, 750);
             });
 
             $('.button_dropdown').click(function () {
