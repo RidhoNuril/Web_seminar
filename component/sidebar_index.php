@@ -1,16 +1,14 @@
 <div class="sidebar_index">
     <ul class="wrap_sidebar">
-        <li><a href="" class="sidebar_link">Beranda</a></li>
-        <li><a href="" class="sidebar_link">Webinar</a></li>
+        <li><a href="../web_seminar" class="sidebar_link <?= $url_file == 'web_seminar' ? 'active_link' : '' ?>">Beranda</a></li>
+        <li><a href="events_mendatang" class="sidebar_link <?= $url_file == 'events_mendatang' ? 'active_link' : '' ?>">Webinar</a></li>
         <li class="profile_list">
             <?php if ($authentikasi == false) { ?>
                 <div class="profile_user_sidebar">
                     <div class="button_dropdown">
                         <span class="nama_profile">
                             <span class="nama_user">
-                                <?php
-                                print_r($user['nama']);
-                                ?>
+                                <?= $user['nama'] ?>
                             </span>
                             <i class="fa-solid fa-user foto_profile"></i>
                         </span>
@@ -22,11 +20,12 @@
                                     <div class="user_foto">
                                         <i class="fa-solid fa-user foto_user"></i>
                                     </div>
-                                    <li><span><?php print_r($user['nama']); ?></span></li>
+                                    <li><span><?= $user['nama'] ?></span></li>
                                 </div>
                                 <div class="navbar_list">
                                     <li><a href="dashboard/home"><i class="fa-solid fa-house"></i> My Dashboard</a></li>
-                                    <li><a href=""><i class="fa-solid fa-user"></i> My Profile</a></li>
+                                    <li><a href="dashboard/profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
+                                    <li><a href="dashboard/ubah-password"><i class="fa-solid fa-lock"></i> Ubah Password</a></li>
                                 </div>
                                 <div class="navbar_logout">
                                     <li>

@@ -6,14 +6,17 @@
         if($directory == 'dashboard'){
             $web_seminar = '../../web_seminar';
             $profile = 'profile';
+            $ubah_password = 'ubah-password';
             $logout = '../action/action_logout.php';
         }elseif($url_file == 'participants'){
             $web_seminar = '../../../../web_seminar';
             $profile = '../../profile';
+            $ubah_password = '../../ubah-password';
             $logout = '../../../action/action_logout.php';
         }else{
             $web_seminar = '../../../web_seminar';
             $profile = '../profile';
+            $ubah_password = '../ubah-password';
             $logout = '../../action/action_logout.php';
         }
     ?>
@@ -41,10 +44,11 @@
                                 <div class="user_foto">
                                     <i class="fa-solid fa-user foto_user"></i>
                                 </div>
-                                <li><span><?php print_r($user_session['nama']); ?></span></li>
+                                <li><span><?= $user_session['nama'] ?></span></li>
                             </div>
                             <div class="navbar_list">
                                 <li><a href="<?= $profile ?>"><i class="fa-solid fa-user"></i> My Profile</a></li>
+                                <li><a href="<?= $ubah_password ?>"><i class="fa-solid fa-lock"></i> Ubah Password</a></li>
                             </div>
                             <div class="navbar_logout">
                                 <li>

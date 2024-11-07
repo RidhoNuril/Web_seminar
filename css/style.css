@@ -11,6 +11,7 @@
 }
 
 :root{
+    --primary-color : #53a8b6;
     --font-quick: 'Quicksand', sans-serif;
 }
 
@@ -110,7 +111,11 @@ a{
     padding: 35px 15px;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 8px;
-    border-radius: 4px;
+    border-radius: 5px;
+}
+
+.form_shadow{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
 }
 
 .form_dashboard{
@@ -140,7 +145,7 @@ a{
     padding: 0px 15px;
 }
 
-.form_left_65{
+.form_65{
     width: 65% !important;
 }
 
@@ -150,7 +155,7 @@ a{
 
 }
 
-.form_right_35{
+.form_35{
     width: 35% !important;
 }
 
@@ -617,7 +622,7 @@ td span.link a i{
 .container_page .navbar .wrap_navbar .navbar_left button.btn_hamburger{
     padding: 10px;
     margin-left: 15px;
-    background-color: transparent;
+    background-color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 50%;
@@ -730,7 +735,11 @@ td span.link a i{
 .profile_user_sidebar .wrap_dropdown ul .navbar_logout{
     padding-top: 10px;
     border-top: 1px solid #dddddd87;
-} 
+}
+
+.active_link{
+    color: var(--primary-color) !important;
+}
 
 .profile_user .wrap_dropdown ul li a:hover,
 .profile_user_sidebar .wrap_dropdown ul li a:hover{
@@ -912,8 +921,8 @@ td span.link a i{
 
     .form .form_right,
     .form .form_left,
-    .form_left_65,
-    .form_right_35,
+    .form_65,
+    .form_35,
     .wrap_table{
         width: 100% !important;
     }

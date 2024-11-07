@@ -61,7 +61,7 @@
             <div class="content">
                 <div class="container_content">
                     <div class="container_form">
-                        <div class="form form_dashboard">
+                        <div class="form form_dashboard form_shadow">
                             <div class="form_head">
                                 <div class="d-flex">
                                     <h1>Edit</h1>
@@ -73,7 +73,7 @@
                             </div>
                             <form action="../../action/action_edit_event.php" method="POST" id="form_edit">
                                 <div class="form_body">
-                                    <div class="form_left form_left_65">
+                                    <div class="form_left form_65">
                                         <input type="hidden" name="id" value="<?= $events['seminar_id'] ?>">
                                         <div class="form_group">
                                             <label for="">Judul Seminar</label>
@@ -97,7 +97,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form_right form_right_35">
+                                    <div class="form_right form_35">
                                         <div class="form_group">
                                             <label for="">Thumbnail Seminar</label>
                                             <input type="file" name="file_thumbnail" class="file_thumbnail">

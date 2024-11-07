@@ -16,7 +16,7 @@
 
     $user = session_profile_user();
     $authentikasi = auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '');
-    $event_up = event_upcoming();
+    $event_up = event_upcoming_all();
     ?>
     <div class="loading_wrapper">
         <div class="loading">
@@ -61,68 +61,14 @@
     ?>
     <main>
         <?php
-            include 'component/sidebar_index.php';
+        include 'component/sidebar_index.php';
         ?>
         <section class="content">
             <div class="container_index">
                 <div class="container_index_pd">
-                    <div class="box_banner">
-                        <div class="banner_overflow">
-                            <img src="img/Dark Teal Geometric Technology LinkedIn Banner.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row_divisi">
-                        <div class="row">
-                            <div class="box_divisi">
-                                <div class="divisi"
-                                    style="background-image: url('https://img.freepik.com/free-photo/person-front-computer-working-html_23-2150040412.jpg');">
-                                </div>
-                                <div class="text_divisi">
-                                    Front-End Web<br> Developer
-                                </div>
-                            </div>
-                            <div class="box_divisi">
-                                <div class="divisi"
-                                    style="background-image: url('https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg');">
-                                </div>
-                                <div class="text_divisi">
-                                    Back-End<br> Developer
-                                </div>
-                            </div>
-                            <div class="box_divisi">
-                                <div class="divisi"
-                                    style="background-image: url('https://media.istockphoto.com/id/1196702694/photo/designers-drawing-website-ux-app-development.jpg?b=1&s=612x612&w=0&k=20&c=ZYuGCDVwrYDymSDf15JNMURA7ZihcYGHuzp9BEqJADU=');">
-                                </div>
-                                <div class="text_divisi">
-                                    Ui Ux<br> Developer
-                                </div>
-                            </div>
-                            <div class="box_divisi">
-                                <div class="divisi"
-                                    style="background-image: url('https://cdn.prod.website-files.com/6100d0111a4ed76bc1b9fd54/6283c5726504418719a40059_mobile%20developer%205.jpeg');">
-                                </div>
-                                <div class="text_divisi">
-                                    Mobile<br> Developer
-                                </div>
-                            </div>
-                            <div class="box_divisi">
-                                <div class="divisi"
-                                    style="background-image: url('https://minio.pijarmahir.id/article/0c4c67ac-264c-446f-95fa-e13191ba02c1.jpg');">
-                                </div>
-                                <div class="text_divisi">
-                                    Data<br> Analyst
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container_index_pd">
                     <div class="registrasi_seminar">
                         <div class="title_registrasi">
                             <h1>Events Mendatang</h1>
-                            <a href="events_mendatang">Lihat Selengkapnya </a>
                         </div>
                         <div class="wrap_box_seminar">
                             <?php foreach ($event_up as $event) { ?>
@@ -148,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Seminar - Dashboard</title>
+    <title>Web Seminar - Profile</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dataTables.min.css">
     <link rel="stylesheet" href="../font/fontawesome/css/all.min.css">
@@ -60,32 +60,32 @@
                                 <tr>
                                     <td>Nama Lengkap</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['nama']) ?></td>
+                                    <td><?= $user_session['nama'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kelas</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['kelas']) ?></td>
+                                    <td><?= $user_session['kelas'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Asal sekolah</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['asal_sekolah']) ?></td>
+                                    <td><?= $user_session['asal_sekolah'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['email']) ?></td>
+                                    <td><?= $user_session['email'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Telepon</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['no_telp']) ?></td>
+                                    <td><?= $user_session['no_telp'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
                                     <td>:</td>
-                                    <td><?php print_r($user_session['provinsi']) ?>, <?php print_r($user_session['kabupaten']) ?>, <?php print_r($user_session['kecamatan']) ?>, <?php print_r($user_session['kelurahan']) ?></td>
+                                    <td><?= $user_session['provinsi'] ?>, <?= $user_session['kabupaten'] ?>, <?= $user_session['kecamatan'] ?>, <?= $user_session['kelurahan'] ?></td>
                                 </tr>
                             </tbody>
                         </table>

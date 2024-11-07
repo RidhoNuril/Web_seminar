@@ -50,7 +50,7 @@ function session_profile_user()
 {
     include 'conn.php';
 
-    $stmt = $conn->prepare("SELECT user_id,nama,kelas,asal_sekolah,email,no_telp,provinsi,kabupaten,kecamatan,kelurahan FROM user WHERE user_id=?");
+    $stmt = $conn->prepare("SELECT user_id,nama,password,kelas,asal_sekolah,email,no_telp,provinsi,kabupaten,kecamatan,kelurahan FROM user WHERE user_id=?");
     $stmt->bind_param("i", $_SESSION['user']);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
@@ -265,7 +265,7 @@ function event_created()
     include 'conn.php';
     $user = session_profile_user();
 
-    $stmt = $conn->prepare("SELECT * FROM seminar WHERE user_id=?");
+    $stmt = $conn->prepare("SELECT * FROM seminar WHERE user_id=? ORDER BY waktu_seminar");
     $stmt->bind_param("i", $user['user_id']);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -350,6 +350,36 @@ function validation_contributor($seminar_id)
 }
 
 function event_upcoming()
+{
+    include 'conn.php';
+
+    $status = 'aktif';
+    $stmt = $conn->prepare("SELECT seminar_id, file_thumbnail, user.nama, judul, waktu_seminar FROM seminar LEFT JOIN user ON seminar.user_id = user.user_id WHERE status_seminar=? ORDER BY waktu_seminar DESC LIMIT 4");
+    $stmt->bind_param("s", $status);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $date_create = date_create($row['waktu_seminar']);
+            $date = date_format($date_create, "d F Y, H:i");
+            $response[] = [
+                'seminar_id' => $row['seminar_id'],
+                'thumbnail' => $row['file_thumbnail'],
+                'nama_contributor' => $row['nama'],
+                'judul_seminar' => $row['judul'],
+                'waktu_seminar' => $date,
+            ];
+        }
+    } else {
+        $response = [];
+    }
+
+    return $response;
+}
+
+function event_upcoming_all()
 {
     include 'conn.php';
 
