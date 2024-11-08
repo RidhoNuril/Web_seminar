@@ -155,7 +155,6 @@
     <?php
         include 'component/footer_index.php';
     ?>
-    c
     <div class="btn_scroll_top">
         <div class="wrap_btn_scroll">
             <i class="fa-solid fa-angle-up"></i>
