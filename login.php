@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/font/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -73,7 +73,7 @@
             </form>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {
@@ -81,7 +81,7 @@
             }, 500);
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.eye_password').click(function () {

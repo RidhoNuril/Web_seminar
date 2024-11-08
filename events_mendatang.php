@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webinar Online</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <link rel="stylesheet" href="assets/font/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
 
                                 <div class="box_seminar">
                                     <div class="wrap_thumbnail">
-                                        <img src="thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
+                                        <img src="assets/thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
                                             alt="Thumbnail_image">
                                     </div>
                                     <div class="wrap_text_detail">
@@ -107,7 +107,7 @@
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {

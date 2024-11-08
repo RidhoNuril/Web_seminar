@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webinar Online</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <link rel="stylesheet" href="assets/font/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -57,7 +57,7 @@
     </div>
 
     <?php
-    include 'component/navbar_index.php';
+        include 'component/navbar_index.php';
     ?>
     <main>
         <?php
@@ -68,7 +68,7 @@
                 <div class="container_index_pd">
                     <div class="box_banner">
                         <div class="banner_overflow">
-                            <img src="img/Dark Teal Geometric Technology LinkedIn Banner.png" alt="">
+                            <img src="assets/img/Dark Teal Geometric Technology LinkedIn Banner.png" alt="">
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
                             <?php foreach ($event_up as $event) { ?>
                                 <div class="box_seminar">
                                     <div class="wrap_thumbnail">
-                                        <img src="thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
+                                        <img src="assets/thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
                                             alt="Thumbnail_image">
                                     </div>
                                     <div class="wrap_text_detail">
@@ -161,7 +161,7 @@
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {

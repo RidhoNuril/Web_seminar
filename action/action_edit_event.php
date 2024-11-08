@@ -28,12 +28,12 @@ function update_event($id, $file_name, $judul, $link, $waktu, $status, $tmp_name
 
             if($file_name != ''){
                 if($file['file_thumbnail'] != 'default_thumbnail.png'){
-                    $delete_dir = "../thumbnail/$file[file_thumbnail]";
+                    $delete_dir = "../assets/thumbnail/$file[file_thumbnail]";
                     unlink($delete_dir);
                 }
 
                 $file_name_update = rand()."-".$file_name;
-                $update_dir = "../thumbnail/".$file_name_update;
+                $update_dir = "../assets/thumbnail/".$file_name_update;
                 move_uploaded_file($tmp_name, $update_dir);
             }else{
                 $file_name_update = $file['file_thumbnail'];

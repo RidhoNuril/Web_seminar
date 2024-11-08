@@ -18,7 +18,7 @@ $deleteId = $_REQUEST['id'];
 
             if($result->num_rows > 0){
                 if($file['file_thumbnail'] != 'default_thumbnail.png'){
-                    $target_dir = "../thumbnail/$file[file_thumbnail]";
+                    $target_dir = "../assets/thumbnail/$file[file_thumbnail]";
                     unlink($target_dir);
                 }
 

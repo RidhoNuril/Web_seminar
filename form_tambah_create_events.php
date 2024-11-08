@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Seminar - Tambah Role</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/font/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -93,7 +93,7 @@
                                         <div class="form_group">
                                             <label for="">Thumbnail Seminar</label>
                                             <input type="file" name="file_thumbnail" class="file_thumbnail">
-                                            <img src="../../thumbnail/default_thumbnail.png" class="img_thumbnail_td img_thumbnail_max" alt="img_default">
+                                            <img src="../../assets/thumbnail/default_thumbnail.png" class="img_thumbnail_td img_thumbnail_max" alt="img_default">
                                             <div class="recomended_dimention">
                                                 Recomended dimention 1620x1080 pixel
                                             </div>
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <script src="../../js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {
@@ -118,7 +118,7 @@
             }, 500);
         });
     </script>
-    <script src="../../js/jquery.validate.min.js"></script>
+    <script src="../../assets/js/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
 

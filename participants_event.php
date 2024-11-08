@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Seminar - Dashboard</title>
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../../../font/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../css/datatables.min.css">
-    <link rel="stylesheet" href="../../../css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../../../assets/css/responsive.dataTables.min.css">
 </head>
 <?php
 include 'function.php';
@@ -130,9 +130,9 @@ if (validation_contributor($seminar_id)) {
         </div>
     </div>
 
-    <script src="../../../js/jquery.min.js"></script>
-    <script src="../../../js/datatables.min.js"></script>
-    <script src="../../../js/dataTables.responsive.min.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/datatables.min.js"></script>
+    <script src="../../../assets/js/dataTables.responsive.min.js"></script>
     <script>
         $(window).on('load', function () {
             setTimeout(function () {

@@ -22,7 +22,7 @@ function create_event( $judul, $file_name, $link, $waktu, $status, $tmp_name){
     }else{
         $file_name_rand = $file_name;
     }
-    $target_dir = "../thumbnail/".$file_name_rand;
+    $target_dir = "../assets/thumbnail/".$file_name_rand;
 
     if($judulSql && $waktu  && $statusSql != ''){
         $create_event = $conn->prepare("INSERT INTO seminar (user_id, file_thumbnail, judul, link_meet, waktu_seminar, status_seminar) VALUES (?, ?, ?, ?, ?, ?)");
