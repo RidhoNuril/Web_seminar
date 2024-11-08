@@ -11,7 +11,7 @@
             <div class="footer_box col-lg-3 col-sm-12">
                 <h1 class="title_2">Kontak Kami</h1>
                 <ul>
-                    <li><a href=""><i class="fa-solid fa-phone"></i>+6295601710055</a></li>
+                    <li><a href=""><i class="fa-solid fa-phone"></i>+62895601710055</a></li>
                     <li><a href=""><i class="fa-regular fa-envelope"></i>seminar@gmail.com</a></li>
                 </ul>
             </div>

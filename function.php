@@ -363,13 +363,14 @@ function event_upcoming()
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $date_create = date_create($row['waktu_seminar']);
-            $date = date_format($date_create, "d F Y, H:i");
+
             $response[] = [
                 'seminar_id' => $row['seminar_id'],
                 'thumbnail' => $row['file_thumbnail'],
                 'nama_contributor' => $row['nama'],
                 'judul_seminar' => $row['judul'],
-                'waktu_seminar' => $date,
+                'waktu_seminar' => date_format($date_create, "H:i"),
+                'tanggal_seminar' => date_format($date_create, "d M Y"),
             ];
         }
     } else {
@@ -393,13 +394,14 @@ function event_upcoming_all()
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $date_create = date_create($row['waktu_seminar']);
-            $date = date_format($date_create, "d F Y, H:i");
+
             $response[] = [
                 'seminar_id' => $row['seminar_id'],
                 'thumbnail' => $row['file_thumbnail'],
                 'nama_contributor' => $row['nama'],
                 'judul_seminar' => $row['judul'],
-                'waktu_seminar' => $date,
+                'waktu_seminar' => date_format($date_create, "H:i"),
+                'tanggal_seminar' => date_format($date_create, "d M Y"),
             ];
         }
     } else {

@@ -127,17 +127,18 @@
                         <div class="wrap_box_seminar">
                             <?php foreach ($event_up as $event) { ?>
                                 <div class="box_seminar">
+                                    <span class="waktu_seminar"><?= $event['waktu_seminar'] ?></span>
                                     <div class="wrap_thumbnail">
                                         <img src="assets/thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
                                             alt="Thumbnail_image">
                                     </div>
                                     <div class="wrap_text_detail">
                                         <div class="detail_seminar">
+                                            <div class="author">
+                                                <span><?= $event['nama_contributor'] ?> - <?= $event['tanggal_seminar'] ?></span>
+                                            </div>
                                             <div class="title_seminar">
                                                 <h1><?= $event['judul_seminar'] ?></h1>
-                                            </div>
-                                            <div class="waktu_seminar">
-                                                <span><?= $event['waktu_seminar'] ?> WIB</span>
                                             </div>
                                         </div>
                                         <button class="btn_regis_seminar"
