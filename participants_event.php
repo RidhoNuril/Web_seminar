@@ -90,10 +90,10 @@ if (validation_contributor($seminar_id)) {
                         <table id="table" class="responsive nowrap" width="100%" style="max-width: 100%;">
                             <thead>
                                 <tr>
-                                    <th data-priority="1">No Reg</th>
-                                    <th data-priority="2">Peserta</th>
+                                    <th>No Reg</th>
+                                    <th data-priority="1">Peserta</th>
                                     <th>Waktu reg</th>
-                                    <th>Status</th>
+                                    <th data-priority="2">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -144,9 +144,8 @@ if (validation_contributor($seminar_id)) {
         $(document).ready(function () {
             $('#table').DataTable({
                 columnDefs: [
-                    { responsivePriority: 1, targets: 0 },
-                    { responsivePriority: 2, targets: -1 },
-                    { responsivePriority: 3, targets: 2 }
+                    { responsivePriority: 1, targets: 1 },
+                    { responsivePriority: 2, targets: -1 }
                 ],
                 order: []
             });

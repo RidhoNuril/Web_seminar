@@ -233,10 +233,9 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .waktu_semina
     color: #fff;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_thumbnail{
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .content_seminar{
     width: 100%;
     height: max-content;
-    background-color: #e9eef1;
 }
 
 .img_thumbnail{
@@ -245,23 +244,16 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_thumbna
     display: block;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 16px;
-    box-sizing: border-box;
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .detail_seminar{
+    padding: 16px 16px 0px;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail .detail_seminar .title_seminar,
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail .detail_seminar .author{
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .detail_seminar .title_seminar,
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .detail_seminar .author{
     margin-bottom: 10px;
-    max-height: 50px;
-    overflow: auto;
-    scrollbar-width: none;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail .detail_seminar .title_seminar h1{
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .detail_seminar .title_seminar h1{
     font-size: 18px;
     line-height: 25px;
     overflow: hidden;
@@ -269,7 +261,7 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_de
     text-overflow: ellipsis;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail .detail_seminar .author span{
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .detail_seminar .author span{
     font-size: 14px;
     line-height: 25px;
     text-transform: uppercase;
@@ -277,7 +269,12 @@ section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_de
     color: #888;
 }
 
-section.content .registrasi_seminar .wrap_box_seminar .box_seminar .wrap_text_detail .btn_regis_seminar{
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .button_daftar{
+    padding: 0px 16px 16px;
+}
+
+section.content .registrasi_seminar .wrap_box_seminar .box_seminar .btn_regis_seminar{
+    width: 100%;
     padding: 12px 16px;
     box-sizing: border-box;
     display: block;

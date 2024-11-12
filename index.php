@@ -128,11 +128,8 @@
                             <?php foreach ($event_up as $event) { ?>
                                 <div class="box_seminar">
                                     <span class="waktu_seminar"><?= $event['waktu_seminar'] ?></span>
-                                    <div class="wrap_thumbnail">
-                                        <img src="assets/thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail"
-                                            alt="Thumbnail_image">
-                                    </div>
-                                    <div class="wrap_text_detail">
+                                    <div class="content_seminar">
+                                        <img src="assets/thumbnail/<?= $event['thumbnail'] ?>" class="img_thumbnail" alt="Thumbnail_image">
                                         <div class="detail_seminar">
                                             <div class="author">
                                                 <span><?= $event['nama_contributor'] ?> - <?= $event['tanggal_seminar'] ?></span>
@@ -141,6 +138,8 @@
                                                 <h1><?= $event['judul_seminar'] ?></h1>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="button_daftar">
                                         <button class="btn_regis_seminar"
                                             data-id="<?= $event['seminar_id'] ?>">Daftar</button>
                                     </div>

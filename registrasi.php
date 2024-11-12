@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <?php 
-        include 'function.php';
+    <?php
+    include 'function.php';
 
-        if (auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '') == false) {
-            header('location: ../web_seminar');
-            exit;
-        }
+    if (auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '') == false) {
+        header('location: ../web_seminar');
+        exit;
+    }
 
     ?>
     <div class="loading_wrapper">
@@ -48,7 +48,7 @@
                         <div class="form_group">
                             <label for="">Nama Lengkap</label>
                             <input type="text" name="nama" id="nama" placeholder="Isi Nama Anda Cth : Agus Salim"
-                                required/>
+                                required />
                         </div>
 
                         <div class="form_group">
@@ -63,7 +63,8 @@
 
                         <div class="form_group">
                             <label for="">Asal Sekolah</label>
-                            <input type="" name="asal_sekolah" id="asal_sekolah" placeholder="Cth : SMKN 2 Bandar Lampung" required/>
+                            <input type="" name="asal_sekolah" id="asal_sekolah"
+                                placeholder="Cth : SMKN 2 Bandar Lampung" required />
                         </div>
 
                         <div class="form_group">
@@ -129,10 +130,10 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script>
-        $(window).on('load',function(){
-            setTimeout(function(){
+        $(window).on('load', function () {
+            setTimeout(function () {
                 $('.loading_wrapper').fadeOut(500);
-            },500);
+            }, 500);
         });
     </script>
     <script src="assets/js/jquery.validate.min.js"></script>
@@ -228,13 +229,13 @@
                                 $('#select-kecamatan').empty().append('<option value="" disabled selected>Pilih Kecamatan</option>');
                                 $('#select-kelurahan').empty().append('<option value="" disabled selected>Pilih Kelurahan</option>');
 
-                                setTimeout(function(){
-                                    if(response.redirect != ''){
+                                setTimeout(function () {
+                                    if (response.redirect != '') {
                                         location.href = response.redirect;
-                                    }else{
+                                    } else {
                                         location.reload();
                                     }
-                                },2000);
+                                }, 2000);
 
                             } else {
                                 $('.icon_notif').empty().append(response.icon);
@@ -273,11 +274,9 @@
             $('#select-provinsi').change(function () {
                 let provId = $(this).find(":selected").data("id");
 
-                if ($('#select-kabupaten').find(":selected").val() != "") {
-                    $('#select-kabupaten').empty().append('<option disabled selected>Pilih Kabupaten</option>');
-                    $('#select-kecamatan').empty().append('<option disabled selected>Pilih Kecamatan</option>');
-                    $('#select-kelurahan').empty().append('<option disabled selected>Pilih Kelurahan</option>');
-                }
+                $('#select-kabupaten').empty().append('<option disabled selected>Pilih Kabupaten</option>');
+                $('#select-kecamatan').empty().append('<option disabled selected>Pilih Kecamatan</option>');
+                $('#select-kelurahan').empty().append('<option disabled selected>Pilih Kelurahan</option>');
 
                 $.ajax({
                     url: "json/regencies.json", dataType: 'json',
@@ -296,13 +295,12 @@
             $('#select-kabupaten').change(function () {
                 let kabId = $(this).find(":selected").data("id");
 
-                if ($('#select-kecamatan').find(":selected").val() != "") {
-                    $('#select-kecamatan').empty().append('<option disabled selected>Pilih Kecamatan</option>');
-                    $('#select-kelurahan').empty().append('<option disabled selected>Pilih Kelurahan</option>');
-                }
+                $('#select-kecamatan').empty().append('<option disabled selected>Pilih Kecamatan</option>');
+                $('#select-kelurahan').empty().append('<option disabled selected>Pilih Kelurahan</option>');
 
                 $.ajax({
-                    url: "json/districts.json", dataType: "json", success: function (data) {
+                    url: "json/districts.json", dataType: "json",
+                    success: function (data) {
                         let kec = data;
                         kec.forEach(function (kec) {
                             if (kec.regency_id == kabId) {
@@ -317,9 +315,7 @@
             $("#select-kecamatan").change(function () {
                 let kecId = $(this).find(":selected").data("id");
 
-                if ($("#select-kelurahan").find(":selected").val() != "") {
-                    $("#select-kelurahan").empty().append('<option disabled selected>Pilih Kelurahan</option>');
-                }
+                $("#select-kelurahan").empty().append('<option disabled selected>Pilih Kelurahan</option>');
 
                 $.ajax({
                     url: "json/villages.json", dataType: "json",
@@ -327,7 +323,10 @@
                         let kel = data;
                         kel.forEach(function (kel) {
                             if (kel.district_id == kecId) {
-                                $("#select-kelurahan").append('<option value="' + kel.name + '">' + kel.name + '</option>')
+                                $("#select-kelurahan")
+                                    .append('<option value="' + kel.name + '">'
+                                        + kel.name +
+                                        '</option>')
                             }
                         });
                     }
