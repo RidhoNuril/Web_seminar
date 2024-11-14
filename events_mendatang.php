@@ -63,8 +63,8 @@
         <?php
         include 'component/sidebar_index.php';
         ?>
-        <section class="content">
-            <div class="container_index">
+        <div class="container_index">
+            <section class="events">
                 <div class="container_index_pd">
                     <div class="registrasi_seminar">
                         <div class="title_registrasi">
@@ -93,8 +93,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
     <?php
         include 'component/footer_index.php';
