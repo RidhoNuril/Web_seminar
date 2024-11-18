@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Seminar - Edit Role</title>
+    <title>Web Seminar - Tambah Question</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/font/fontawesome/css/all.min.css">
 </head>
@@ -21,13 +21,10 @@
         exit;
     }
 
-    if (authorization('role')) {
+    if(authorization('role')){
         header('location: ../home');
         exit;
     }
-
-    $role_id = isset($_GET['id']) ? $_GET['id'] : '';
-    $role_edit = form_edit_role($role_id);
 
     ?>
     <div class="loading_wrapper">
@@ -47,12 +44,12 @@
         </div>
     </div>
     <div class="container_page">
-        <?php
-        include 'component/navbar.php';
+        <?php 
+            include 'component/navbar.php';
         ?>
         <div class="main">
-            <?php
-            include 'component/sidebar.php';
+            <?php 
+                include 'component/sidebar.php';
             ?>
             <div class="content">
                 <div class="container_content">
@@ -60,50 +57,27 @@
                         <div class="form form_dashboard form_shadow">
                             <div class="form_head">
                                 <div class="d-flex">
-                                    <h1>Edit</h1>
-                                    <a href="../role" id="btn_back">
+                                    <h1>Add</h1>
+                                    <a href="../question" id="btn_back">
                                         Back
                                     </a>
                                 </div>
-                                <span class="sub-title">Role</span>
+                                <span class="sub-title">Question</span>
                             </div>
-                            <form action="../../action/action_edit_role.php" method="POST" id="form_edit">
+                            <form action="../../action/action_tambah_question.php" method="POST" id="form_tambah">
                                 <div class="form_body_single">
-                                    <input type="hidden" id="role_id" name="id" value="<?= $role_edit['role_id'] ?>">
                                     <div class="form_group">
-                                        <label for="">Nama Role</label>
-                                        <input type="text" name="nama_role" id="nama_role"
-                                            value="<?= $role_edit['nama_role'] ?>"
-                                            placeholder="Isi Nama Anda Cth : Agus Salim" required />
+                                        <label for="">Question</label>
+                                        <input type="text" name="question" id="question"
+                                            placeholder="Isi Pertanyaan yang sering ditanyakan" required />
                                     </div>
                                     <div class="form_group">
-                                        <label for="">Permission</label>
-                                        <div class="input_checkbox">
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="permission[]" value="user" id="user"
-                                                    <?= checked_checkbox_permission('user', $role_edit['role_id']) == true ? 'checked' : '' ?>>
-                                                <label for="user">User</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="permission[]" value="role" id="role"
-                                                    <?= checked_checkbox_permission('role', $role_edit['role_id']) == true ? 'checked' : '' ?>>
-                                                <label for="role">Role</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="permission[]" value="create event" id="create_event"
-                                                    <?= checked_checkbox_permission('create event', $role_edit['role_id']) == true ? 'checked' : '' ?>>
-                                                <label for="create_event">Create Event</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="permission[]" value="question" id="create_event"
-                                                    <?= checked_checkbox_permission('question', $role_edit['role_id']) == true ? 'checked' : '' ?>>
-                                                <label for="create_event">Question</label>
-                                            </div>
-                                        </div>
+                                        <label for="">Answer</label>
+                                        <textarea name="answer" id="answer" placeholder="Isi Jawaban dari pertanyaan" required></textarea>
                                     </div>
                                 </div>
                                 <div class="form_bottom">
-                                    <button type="submit" class="btn_update">Update</button>
+                                    <button type="submit" class="btn_tambah">Add</button>
                                 </div>
                             </form>
                         </div>
@@ -124,7 +98,7 @@
     <script>
         $(document).ready(function () {
 
-            $('.btn_hamburger').click(function () {
+            $('.btn_hamburger').click(function() {
                 let sidebar = $('.sidebar').css('margin-left');
                 console.log(sidebar);
                 if (sidebar == '0px') {
@@ -147,21 +121,10 @@
                 }
             });
 
-            $('#form_edit').validate({
-                rules: {
-                    nama_role: {
-                        remote: {
-                            url: '../../action/check_role_edit.php',
-                            type: 'POST',
-                            data: {id: $('#role_id').val()}
-                        }
-                    }
-                },
+            $('#form_tambah').validate({
                 messages: {
-                    nama_role: {
-                        required: 'Nama role harus diisi',
-                        remote: 'Nama role sudah ada'
-                    }
+                    question: 'Pertanyaan wajib diisi',
+                    answer: 'Jawaban wajib diisi'
                 },
                 errorElement: 'small',
                 errorClass: 'border-red',
@@ -179,6 +142,8 @@
                         dataType: 'json',
                         success: function (response) {
                             if (response.status == 'success') {
+                                $('#question').val('');
+                                $('#answer').val('');
                                 $('.icon_notif').empty().append(response.icon);
                                 $('#title_notif').text('Success !');
                                 $('#message_notif').text(response.message);
@@ -186,12 +151,12 @@
                                 setTimeout(function () {
                                     $('.notif').fadeOut(800);
                                 }, 1500);
-                                $('#nama_role').val('');
                                 setTimeout(function () {
-                                    if (response.redirect != '') {
+                                    if(response.redirect != ''){
                                         location.href = response.redirect;
                                     }
                                 }, 1500);
+                                $('#nama_role').val('');
                             } else {
                                 $('.icon_notif').empty().append(response.icon);
                                 $('#title_notif').text('Failed !');
@@ -199,7 +164,7 @@
                                 $('.notif').css({ 'background-color': '#c85c57' }).fadeIn(300);
                                 setTimeout(function () {
                                     $('.notif').fadeOut(800);
-                                }, 2000);
+                                }, 1500);
                             }
                         },
                         error: function (response) {
@@ -219,4 +184,4 @@
     </script>
 </body>
 
-</html
+</html>

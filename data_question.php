@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Seminar - Data Users</title>
+    <title>Web Seminar - Data Question</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/font/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
     <link rel="stylesheet" href="../assets/css/responsive.dataTables.min.css">
 </head>
 <?php
@@ -16,13 +16,14 @@ include 'function.php';
 
 $user_session = session_profile_user();
 $role_session = session_role();
+$data_question = get_all_question();
 
 if (auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '')) {
     header('location: ../login');
     exit;
 }
 
-if (authorization('user')) {
+if (authorization('question')) {
     header('location: home');
 }
 
@@ -37,7 +38,8 @@ if (authorization('user')) {
     </div>
     <div class="notif">
         <div class="box_notif">
-            <div class="icon_notif"></div>
+            <div class="icon_notif">
+            </div>
             <div class="text_notif">
                 <div class="wrap_message">
                     <span id="title_notif"></span>
@@ -49,15 +51,15 @@ if (authorization('user')) {
     <div class="dialog_background">
         <div class="wrap_dialog">
             <div class="dialog_confirm">
-                <form action="../action/action_delete_user.php" id="ajax-delete">
+                <form action="../action/action_delete_role.php" id="ajax-delete">
                     <div class="dialog_header">
-                        <h3>Hapus User</h3>
+                        <h3>Hapus Question</h3>
                         <button type="button" class="btn_close_dialog">
                             <i class="fa-solid fa-x"></i>
                         </button>
                     </div>
                     <div class="dialog_body">
-                        Apakah anda yakin ingin menghapus user?
+                        Apakah anda yakin ingin menghapus question?
                     </div>
                     <div class="dialog_footer">
                         <button type="button" class="btn_close_dialog">Tutup</button>
@@ -79,54 +81,34 @@ if (authorization('user')) {
             <div class="content">
                 <div class="container_content">
                     <div class="title_content">
-                        <span>Data Users</span>
-                        <a href="user/add">Add User</a>
+                        <span>Data Question</span>
+                        <a href="question/add">Add Question</a>
                     </div>
                     <div class="wrap_table">
-                        <table id="table" class="responsive nowrap" width="100%" style="max-width: 100%;">
+                        <table id="table" width="100%" style="max-width: 100%;">
                             <thead>
                                 <tr>
-                                    <th data-priority="1">Nama</th>
-                                    <th>Kelas</th>
-                                    <th data-priority="3">Sekolah</th>
-                                    <th>Email</th>
-                                    <th>No Telp</th>
-                                    <th>Provinsi</th>
-                                    <th>Kabupaten</th>
-                                    <th>Kecamatan</th>
-                                    <th>Kelurahan</th>
-                                    <th data-priority="2">Option</th>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                    <th>Option</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                include 'conn.php';
-                                $no = 1;
-                                $sql = $conn->query("SELECT * FROM user WHERE NOT user_id='$_SESSION[user]'");
-                                while ($peserta = $sql->fetch_assoc()) { ?>
+                                foreach ($data_question as $row) { ?>
                                     <tr>
-                                        <td><?= $peserta['nama']; ?></td>
-                                        <td><?= $peserta['kelas']; ?></td>
-                                        <td><?= $peserta['asal_sekolah']; ?></td>
-                                        <td><?= $peserta['email']; ?></td>
-                                        <td><?= $peserta['no_telp']; ?></td>
-                                        <td><?= $peserta['provinsi']; ?></td>
-                                        <td><?= $peserta['kabupaten']; ?></td>
-                                        <td><?= $peserta['kecamatan']; ?></td>
-                                        <td><?= $peserta['kelurahan']; ?></td>
-                                        <td>
+                                        <td class="vertical_align_top"><?= $row['question']; ?></td>
+                                        <td class="vertical_align_top"><?= $row['answer']; ?></td>
+                                        <td class="vertical_align_top">
                                             <div class="td_btn_wrapper">
-                                                <a href="user/<?= $peserta['user_id'] ?>" class="btn_td"><i
+                                                <a href="question/<?= $row['id'] ?>" class="btn_td"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                <button class="btn_delete btn_td btn_red"
-                                                    data-id="<?= $peserta['user_id'] ?>"><i
+                                                <button class="btn_delete btn_td btn_red" data-id="<?= $row['id'] ?>"><i
                                                         class="fa-solid fa-trash-can"></i></button>
                                             </div>
                                         </td>
                                     </tr>
-                                <?php }
-                                $conn->close();
-                                ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -148,11 +130,6 @@ if (authorization('user')) {
     <script>
         $(document).ready(function () {
             $('#table').DataTable({
-                columnDefs: [
-                    { responsivePriority: 1, targets: 0 },
-                    { responsivePriority: 2, targets: -1 },
-                    { responsivePriority: 3, targets: 2 }
-                ],
                 order: []
             });
 
@@ -184,7 +161,7 @@ if (authorization('user')) {
                 let id = $(this).data('id');
                 let form = $('#ajax-delete');
                 let row = $(this).closest('tr');
-                form.attr('action', '../action/action_delete_user.php?id='+ id);
+                form.attr('action', '../action/action_delete_question.php?id='+ id);
                 form.data('row',row);
                 confirm.fadeIn(300);
             });
@@ -192,7 +169,7 @@ if (authorization('user')) {
             $('.btn_close_dialog').click(function () {
                 let confirm = $('.dialog_background');
                 let form = $('#ajax-delete');
-                form.attr('action', '../action/action_delete_user.php');
+                form.attr('action', '../action/action_delete_question.php');
                 confirm.fadeOut(300);
             });
 

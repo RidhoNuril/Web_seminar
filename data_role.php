@@ -109,10 +109,12 @@ if (authorization('role')) {
                                             <?php } ?>
                                         </td>
                                         <td>
-                                            <a href="role/<?= $row['role_id'] ?>" class="btn_td"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn_delete btn_td btn_red" data-id="<?= $row['role_id'] ?>"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
+                                            <div class="td_btn_wrapper">
+                                                <a href="role/<?= $row['role_id'] ?>" class="btn_td"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <button class="btn_delete btn_td btn_red" data-id="<?= $row['role_id'] ?>"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php } ?>

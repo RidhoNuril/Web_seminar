@@ -9,18 +9,21 @@
         $create_events = 'create_events';
         $users = 'user';
         $roles = 'role';
+        $question = 'question';
     }elseif($url_file == 'participants'){
         $dashboard = '../../home';
         $event = '../../event';
         $create_events = '../../create_events';
         $users = '../../user';
         $roles = '../../role';
+        $question = '../../question';
     }else{
         $dashboard = '../home';
         $event = '../event';
         $create_events = '../create_events';
         $users = '../user';
         $roles = '../role';
+        $question = '../question';
     }
     ?>
     <div class="sidebar_list">
@@ -68,6 +71,15 @@
                     class="nav_link <?= $directory == 'role' || $url_file == 'role' ? 'active' : '' ?>">
                     <i class="fa-solid fa-user-gear <?= $directory == 'role' || $url_file == 'role' ? 'active' : '' ?>"></i>
                     Roles
+                </a>
+            </li>
+        <?php } ?>
+        <?php if(authorization('question') == false){ ?>
+            <li>
+                <a href="<?= $question ?>"
+                    class="nav_link <?= $directory == 'question' || $url_file == 'question' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-circle-question <?= $directory == 'question' || $url_file == 'question' ? 'active' : '' ?>"></i>
+                    Question
                 </a>
             </li>
         <?php } ?>

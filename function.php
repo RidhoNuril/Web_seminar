@@ -326,6 +326,45 @@ function show_participants_event($seminar_id)
     return $response;
 }
 
+function get_all_question(){
+    include 'conn.php';
+
+    $stmt = $conn->prepare("SELECT * FROM faq");
+    $stmt->execute();
+    $results = $stmt->get_result();
+
+    if($results->num_rows > 0){
+        while($row = $results->fetch_assoc()){
+            $response[] = [
+                'id' => $row['id'],
+                'question' => $row['question'],
+                'answer' => $row['answer']
+            ];
+        }
+    }else{
+        $response = [];
+    }
+
+    return $response;
+}
+
+function form_edit_question($question_id){
+    include 'conn.php';
+
+    $stmt = $conn->prepare("SELECT * FROM faq WHERE id=?");
+    $stmt->bind_param("i", $question_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows > 0){
+        $response = $result->fetch_assoc();
+    }else{
+        header('location: ../question');
+    }
+
+    return $response;
+}
+
 function validation_contributor($seminar_id)
 {
     include 'conn.php';

@@ -86,6 +86,10 @@
                                                 <input type="checkbox" name="permission[]" value="create event" id="create_event">
                                                 <label for="create_event">Create Event</label>
                                             </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="permission[]" value="question" id="question">
+                                                <label for="question">Question</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -114,13 +114,15 @@ if (authorization('create event')) {
                                             <?= $row['link_meet'] != null ? $row['link_meet'] : 'Link meet belum diset' ?>
                                         </td>
                                         <td class="vertical_align_top">
-                                            <a href="create_events/<?= $row['seminar_id'] ?>" class="btn_td"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn_delete btn_td btn_red" data-id="<?= $row['seminar_id'] ?>"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                            <a href="create_events/<?= $row['seminar_id'] ?>/participants"
-                                                class="btn_td btn_grey"><i class="fa-solid fa-users"></i>
-                                                <?= count_participants_event($row['seminar_id']) ?></a>
+                                            <div class="td_btn_wrapper">
+                                                <a href="create_events/<?= $row['seminar_id'] ?>" class="btn_td"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <button class="btn_delete btn_td btn_red" data-id="<?= $row['seminar_id'] ?>"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                                <a href="create_events/<?= $row['seminar_id'] ?>/participants"
+                                                    class="btn_td btn_grey"><i class="fa-solid fa-users"></i>
+                                                    <?= count_participants_event($row['seminar_id']) ?></a>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php } ?>
