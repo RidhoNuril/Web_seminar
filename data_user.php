@@ -115,13 +115,11 @@ if (authorization('user')) {
                                         <td><?= $peserta['kecamatan']; ?></td>
                                         <td><?= $peserta['kelurahan']; ?></td>
                                         <td>
-                                            <div class="td_btn_wrapper">
-                                                <a href="user/<?= $peserta['user_id'] ?>" class="btn_td"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <button class="btn_delete btn_td btn_red"
-                                                    data-id="<?= $peserta['user_id'] ?>"><i
-                                                        class="fa-solid fa-trash-can"></i></button>
-                                            </div>
+                                            <a href="user/<?= $peserta['user_id'] ?>" class="btn_td"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <button class="btn_delete btn_td btn_red"
+                                                data-id="<?= $peserta['user_id'] ?>"><i
+                                                    class="fa-solid fa-trash-can"></i></button>
                                         </td>
                                     </tr>
                                 <?php }

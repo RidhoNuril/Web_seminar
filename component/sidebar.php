@@ -79,7 +79,7 @@
                 <a href="<?= $question ?>"
                     class="nav_link <?= $directory == 'question' || $url_file == 'question' ? 'active' : '' ?>">
                     <i class="fa-solid fa-circle-question <?= $directory == 'question' || $url_file == 'question' ? 'active' : '' ?>"></i>
-                    Question
+                    Questions
                 </a>
             </li>
         <?php } ?>

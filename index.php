@@ -17,6 +17,8 @@
     $user = session_profile_user();
     $authentikasi = auth_check_token(!empty($_SESSION['auth_token']) ? $_SESSION['auth_token'] : '');
     $event_up = event_upcoming();
+    $faq = show_faq_limit();
+
     ?>
     <div class="loading_wrapper">
         <div class="loading">
@@ -151,6 +153,31 @@
                     </div>
                 </div>
             </section>
+
+            <section class="faq">
+                <div class="container_index_pd">
+                    <div class="faq_section">
+                        <div class="title_faq">
+                            <h1>Frequently Asked<br>Question</h1>
+                        </div>
+                        <div class="content_faq">
+                            <?php foreach($faq as $row){ ?>
+                                <div class="details">
+                                    <div class="question">
+                                        <i class="fa-regular fa-circle-question"></i>
+                                        <h3><?= $row['question'] ?></h3>
+                                    </div>
+                                    <div class="answer">
+                                        <hr></hr>
+                                        <p><?= $row['answer'] ?></p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
         </div>
     </main>
     <?php
@@ -274,6 +301,22 @@
                     $('.dropdown_profile').fadeIn(200);
                 } else {
                     $('.dropdown_profile').fadeOut(0);
+                }
+            });
+
+            $('.details').click(function(){
+                let answer = $(this).children('.answer');
+                let display = answer.css('display');
+                let siblings = $(this).siblings('.details');
+
+                if(display == 'none'){
+                    $(this).css('border-color','#53a8b6');
+                    answer.css('display','block');
+                    siblings.children('.answer').css('display','none');
+                    siblings.css('border-color','transparent');
+                }else{
+                    $(this).css('border-color','transparent');
+                    answer.css('display','none');
                 }
             });
 

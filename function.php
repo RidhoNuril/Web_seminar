@@ -419,6 +419,27 @@ function event_upcoming()
     return $response;
 }
 
+function show_faq_limit(){
+    include 'conn.php';
+
+    $stmt = $conn->prepare("SELECT answer, question FROM faq LIMIT 5");
+    $stmt->execute();
+    $results = $stmt->get_result();
+
+    if($results->num_rows > 0){
+        while($row = $results->fetch_assoc()){
+            $response[] = [
+                'question' => $row['question'],
+                'answer' => $row['answer']
+            ];
+        }
+    }else{
+        $response = [];
+    }
+
+    return $response;
+}
+
 function event_upcoming_all()
 {
     include 'conn.php';

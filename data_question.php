@@ -81,7 +81,7 @@ if (authorization('question')) {
             <div class="content">
                 <div class="container_content">
                     <div class="title_content">
-                        <span>Data Question</span>
+                        <span>Data Questions</span>
                         <a href="question/add">Add Question</a>
                     </div>
                     <div class="wrap_table">
